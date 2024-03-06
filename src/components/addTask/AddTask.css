@@ -1,0 +1,38 @@
+.AddTask_container {
+    /* border: 1px solid red; */
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AddTask_container__inner {
+    /* border: 1px solid red; */
+    width: 40%;
+}
+
+.Create_container__closeIcon {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* cursor: pointer; */
+}
+
+.Create_container__buttons {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-around;
+    /* flex-direction: column; */
+    gap: 0.5rem;
+}
+
+.med_size {
+    width: 40%;
+}
