@@ -16,23 +16,24 @@ const ViewTask = () => {
     });
 
     // Initial data fetch from api
-    const fetchData = () => {
-        findOneTodoListApi(id).then(res => {
-            console.log(res.data.myTodoList);
-            setData({
-                task: res.data.myTodoList.title,
-                description: res.data.myTodoList.description,
-                deadlineDate: res.data.myTodoList.deadlineDate,
-                status: res.data.myTodoList.status
-            })
-        }).catch(err => {
-            console.log(err);
-        })
-    }
-
     useEffect(() => {
-        fetchData()
-    }, [data])
+        const fetchData = async () => {
+            try {
+                const res = await findOneTodoListApi(id);
+                console.log(res.data.myTodoList);
+                setData({
+                    task: res.data.myTodoList.title,
+                    description: res.data.myTodoList.description,
+                    deadlineDate: res.data.myTodoList.deadlineDate,
+                    status: res.data.myTodoList.status
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchData();
+    }, [id]); // Include id in the dependency array
 
     const handleChange = (e) => {
         const { name, value } = e.target;
