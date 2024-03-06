@@ -32,7 +32,7 @@ const ViewTask = () => {
 
     useEffect(() => {
         fetchData()
-    },[])
+    }, [data])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
