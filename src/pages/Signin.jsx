@@ -28,6 +28,7 @@ const Signin = () => {
             }
             // console.log(data);
             saveLoginToken(data)
+            window.location.reload();
             navigate('/')
         }).catch(err => {
             alert(err.response.data.message);

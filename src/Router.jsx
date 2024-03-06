@@ -11,15 +11,15 @@ const token = getToken();
 export const appRouters = createBrowserRouter([
     {
         path: "/",
-        element: token ? <Signin /> : <Home />
+        element: token ? <Home /> : <Signin />
     },
     {
         path: "/view-task/:id",
-        element: token ? <Signin /> : <ViewTask />
+        element: token ? <ViewTask /> : <Signin />
     },
     {
         path: "/add-task",
-        element: token ? <Signin /> : <AddTask />
+        element: token ? <AddTask /> : <Signin />
     },
     {
         path: "/sign-up",

@@ -24,8 +24,7 @@ const Home = () => {
 
     useEffect(() => {
         fetchData()
-
-    }, [])
+    })
 
     console.log("This value is from redux", taskList);
 

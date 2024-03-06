@@ -36,7 +36,7 @@
 }
 
 .Home_styles {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -235,7 +235,7 @@
 /* auth page styles */
 
 .auth_container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100vw;
     height: 100vh;
     overflow: hidden;

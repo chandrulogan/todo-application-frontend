@@ -5,5 +5,5 @@ export const saveLoginToken = (data) => {
 }
 
 export const getToken = () => {
-    localStorage.getItem("authToken")
+    return localStorage.getItem("authToken");
 }

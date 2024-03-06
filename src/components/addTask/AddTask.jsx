@@ -4,7 +4,7 @@ import { validateDeadlineDate, validateTask, validateDescription } from '../../u
 import { Link, useNavigate } from 'react-router-dom';
 import { createTodoApi } from '../../api/Todo';
 
-const AddTask = ({  }) => {
+const AddTask = () => {
     const userId = localStorage.getItem("userId");
     const navigate = useNavigate()
     const [data, setData] = useState({
