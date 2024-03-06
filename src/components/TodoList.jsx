@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const TodoList = ({ listId,sno, content, date, status, viewTaskModalState }) => {
 
     return (
-        <Link className='TodoList_container' to={`/view-task/${listId}`} target='_blank' onClick={viewTaskModalState}>
+        <Link className='TodoList_container' to={`/view-task/${listId}`} onClick={viewTaskModalState}>
             <div>{sno}</div>
             <div className='TodoList_container__content'>
                 <h5>{content}</h5>
