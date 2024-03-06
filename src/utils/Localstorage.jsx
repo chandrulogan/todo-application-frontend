@@ -7,3 +7,9 @@ export const saveLoginToken = (data) => {
 export const getToken = () => {
     return localStorage.getItem("authToken");
 }
+
+export const clearLocalStorage = () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userId");
+}
