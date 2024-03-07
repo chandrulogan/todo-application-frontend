@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/Header'
 import TodoList from '../components/TodoList'
 import { findMyTodoListApi } from '../api/Todo'
@@ -7,7 +7,7 @@ import { setTaskList } from '../store/taskSlice'
 import Logout from '../components/Logout/Logout'
 
 const Home = () => {
-    const [data, setdata] = useState()
+    // const [data, setdata] = useState()
     const userId = localStorage.getItem("userId")
     const taskList = useSelector(state => state.task.taskList);
     const dispatch = useDispatch()
@@ -16,7 +16,7 @@ const Home = () => {
     const fetchData = () => {
         findMyTodoListApi(userId).then(res => {
             // console.log("This is api data",res.data.myTodoList);
-            setdata(res.data.myTodoList);
+            // setdata(res.data.myTodoList);
             dispatch(setTaskList(res.data.myTodoList))
         }).catch(err => {
             console.log(err);
@@ -34,7 +34,7 @@ const Home = () => {
             <div className='home_containerInner'>
                 <Header />
 
-                {data ? (
+                {taskList ? (
                     taskList.map((data, index) => (
                         <TodoList
                             key={index}

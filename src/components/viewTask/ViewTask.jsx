@@ -33,7 +33,7 @@ const ViewTask = () => {
         };
 
         fetchData();
-    }, [id]); // Include id in the dependency array
+    }, [id]); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
