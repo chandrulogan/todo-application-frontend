@@ -3,7 +3,7 @@ import './viewTask.css'
 import { validateDeadlineDate, validateTask, validateDescription } from '../../utils/Validation';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { editMyTodoListApi, findOneTodoListApi } from '../../api/Todo';
+import { deleteTodoListApi, editMyTodoListApi, findOneTodoListApi } from '../../api/Todo';
 import Logout from '../Logout/Logout';
 
 const ViewTask = () => {
@@ -34,7 +34,7 @@ const ViewTask = () => {
         };
 
         fetchData();
-    }, [id]); 
+    }, [id]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -43,6 +43,7 @@ const ViewTask = () => {
             [name]: value
         });
     };
+
     const updateTask = (e) => {
         e.preventDefault();
 
@@ -69,13 +70,22 @@ const ViewTask = () => {
             status: ''
         })
 
-        editMyTodoListApi(id, data).then(res=>{
+        editMyTodoListApi(id, data).then(res => {
+            // console.log(res);
+            navigate('/')
+        }).catch(err => {
+            console.log(err);
+        })
+    };
+
+    const deleteFunction = ()=>{
+        deleteTodoListApi(id).then(res=>{
             // console.log(res);
             navigate('/')
         }).catch(err=>{
             console.log(err);
         })
-    };
+    }
 
     return (
         <div className='show'>
@@ -91,7 +101,6 @@ const ViewTask = () => {
                             placeholder='task name'
                             value={data.task}
                             onChange={handleChange}
-                        // disabled
                         />
                     </div>
                     <div className='Create_container__inputContainer'>
@@ -102,7 +111,6 @@ const ViewTask = () => {
                             value={data.description}
                             onChange={handleChange}
                             className='textArea__style'
-                        // disabled
                         />
                     </div>
                     <div className='Create_container__dateInputContainer'>
@@ -112,13 +120,7 @@ const ViewTask = () => {
                             name='deadlineDate'
                             value={data.deadlineDate}
                             onChange={handleChange}
-                        // disabled
                         />
-                    </div>
-                    <div className='viewTaskModal__finalRow'>
-                        <button className='todo_royalBlue_button med_size' onClick={updateTask}>
-                            Update Task
-                        </button>
 
                         <select
                             name="status"
@@ -129,6 +131,15 @@ const ViewTask = () => {
                             <option value="completed">completed</option>
                             <option value="aborted">Aborted</option>
                         </select>
+                    </div>
+                    <div className='viewTaskModal__finalRow'>
+                        <button className='todo_royalBlue_button med_size' onClick={updateTask}>
+                            Update Task
+                        </button>
+
+                        <button className='todo_delete_button med_size' onClick={deleteFunction}>
+                            Delete Task
+                        </button>
                     </div>
                 </div>
             </div>

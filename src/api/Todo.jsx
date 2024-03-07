@@ -1,5 +1,5 @@
 import API from "./Api"
-import { createTodoListEndpoint, editMyTodoListEndpoint, findMyTodoListEndpoint, findOneTodoListEndpoint, updateTodoListStatusEndpoint } from "./Endpoints"
+import { createTodoListEndpoint, deleteEndpoint, editMyTodoListEndpoint, findMyTodoListEndpoint, findOneTodoListEndpoint, updateTodoListStatusEndpoint } from "./Endpoints"
 
 export const createTodoApi = (data) => {
     return API.post(`${createTodoListEndpoint}`, data)
@@ -21,6 +21,6 @@ export const updateTodoListStatusApi = (data) => {
     return API.post(`${updateTodoListStatusEndpoint}`, data)
 }
 
-export const deleteTodoListApi = (data) => {
-    return API.delete(`${updateTodoListStatusEndpoint}`, data)
+export const deleteTodoListApi = (id) => {
+    return API.delete(`${deleteEndpoint}/${id}`)
 }

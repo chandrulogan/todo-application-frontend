@@ -148,6 +148,22 @@
     transition: 0.2s;
 }
 
+.todo_delete_button {
+    border: 1px solid red;
+    border-radius: 5px;
+    background: white;
+
+    cursor: pointer;
+}
+
+.todo_delete_button:hover {
+    transform: scaleX(1.1);
+    background: red;
+    color: white;
+    transition: 0.2s;
+    font-weight: bolder;
+}
+
 /* todo list styles */
 
 .TodoList_container {
