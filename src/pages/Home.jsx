@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import TodoList from '../components/TodoList'
 import { findMyTodoListApi } from '../api/Todo'
@@ -9,14 +9,18 @@ import Logout from '../components/Logout/Logout'
 const Home = () => {
     const userId = localStorage.getItem("userId")
     const taskList = useSelector(state => state.task.taskList);
+    const [apiDate, setapiDate] = useState()
     const dispatch = useDispatch()
 
     const fetchData = () => {
-        findMyTodoListApi(userId).then(res => {
-            dispatch(setTaskList(res.data.myTodoList))
-        }).catch(err => {
-            console.log(err);
-        })
+        if (taskList.length !== 1) {
+            findMyTodoListApi(userId).then(res => {
+                dispatch(setTaskList(res.data.myTodoList))
+                setapiDate(res.data.myTodoList)
+            }).catch(err => {
+                console.log(err);
+            })   
+        }
     }
 
     useEffect(() => {
@@ -42,7 +46,17 @@ const Home = () => {
                         />
                     ))
                 ) : (
-                    <div>Not created any tasks</div>
+                    // apiDate.map((data, index) => (
+                    //     <TodoList
+                    //         key={index}
+                    //         sno={index + 1}
+                    //         content={data.title}
+                    //         date={data.deadlineDate}
+                    //         status={data.status}
+                    //         listId={data._id}
+                    //     />
+                    // ))
+                    <div>Loading...</div>
                 )}
 
             </div>

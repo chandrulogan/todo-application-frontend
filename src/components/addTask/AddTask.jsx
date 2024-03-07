@@ -4,9 +4,12 @@ import { validateDeadlineDate, validateTask, validateDescription } from '../../u
 import { Link, useNavigate } from 'react-router-dom';
 import { createTodoApi } from '../../api/Todo';
 import Logout from '../Logout/Logout';
+import { useDispatch } from 'react-redux';
+import { setAddTaskList } from '../../store/taskSlice';
 
 const AddTask = () => {
     const userId = localStorage.getItem("userId");
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [data, setData] = useState({
         userId: userId,
@@ -48,6 +51,8 @@ const AddTask = () => {
             description: "",
             deadlineDate: ''
         })
+
+        dispatch(setAddTaskList(data))
 
         createTodoApi(data).then(res=>{
             console.log(res.data);
