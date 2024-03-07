@@ -38,6 +38,7 @@ const Signup = () => {
         }
         saveLoginToken(data)
         navigate('/')
+        window.location.reload(); // Reload the page
       }).catch(err => {
         alert(err.response.data.data.message);
       })
@@ -45,9 +46,8 @@ const Signup = () => {
     } else {
       alert("Password length must be greater than 8")
     }
-
-
   };
+
 
   return (
     <div className='auth_container'>

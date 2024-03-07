@@ -4,6 +4,7 @@ import { validateDeadlineDate, validateTask, validateDescription } from '../../u
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { editMyTodoListApi, findOneTodoListApi } from '../../api/Todo';
+import Logout from '../Logout/Logout';
 
 const ViewTask = () => {
     const navigate = useNavigate()
@@ -131,6 +132,7 @@ const ViewTask = () => {
                     </div>
                 </div>
             </div>
+            <Logout />
         </div>
     )
 }

@@ -3,6 +3,7 @@ import './AddTask.css'
 import { validateDeadlineDate, validateTask, validateDescription } from '../../utils/Validation';
 import { Link, useNavigate } from 'react-router-dom';
 import { createTodoApi } from '../../api/Todo';
+import Logout from '../Logout/Logout';
 
 const AddTask = () => {
     const userId = localStorage.getItem("userId");
@@ -100,6 +101,7 @@ const AddTask = () => {
                     </div>
                 </div>
             </div>
+            <Logout />
         </div>
     )
 }
